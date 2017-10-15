@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\BookCovers\" />
+    <Folder Include="Views\Books\" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GeekText.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace GeekText.Models
 {
     public class Book
     {
+
+        [Key]
+        [MaxLength(17)]
+        public string ISBN { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -14,19 +20,16 @@ namespace GeekText.Models
 
         public string Genre { get; set; }
 
-        public string Publisher { get; set; }
-
-        [MaxLength(17)]
-        [Key]
-        public string ISBN { get; set; }
+        public string Publisher { get; set; }        
 
         [MinLength(0)]
         public int Quantity { get; set; }
 
         [MaxLength(255)]
-        public string image { get; set; }
+        public string Image { get; set; }
 
-        public int isFeatured { get; set; }
+        public int IsFeatured { get; set; }
 
     }
+    
 }
