@@ -19,7 +19,12 @@ namespace GeekText.Controllers
                 return View(context.GetAllBooks());
             else
             {
-                return View(context.GetAllBooks().Where(x => x.Title.Contains(search) || search == null).ToList());
+                return View(context.GetAllBooks().Where(x => x.Title.ToLower().Contains(search.ToLower()) ||
+                                                             x.Author.ToLower().Contains(search.ToLower()) ||
+                                                             x.Genre.ToLower().Contains(search.ToLower()) ||
+                                                             x.ISBN.Contains(search) ||
+                                                             x.Publisher.ToLower().Contains(search.ToLower()) ||
+                                                             search == null).ToList());
             }
         }
         
