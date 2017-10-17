@@ -6,7 +6,6 @@
 
     <h2>ViewBooks</h2>
 
-
     @if (Model.Count() == 0)
     {
         <tr>
@@ -15,13 +14,13 @@
             </td>
         </tr>
     }
-    <div class="row">
+    <div class="row" height="220">
         @if (Model.Count() != 0)
         {
             foreach (var item in Model)
             {
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-5">
-                    <a href="#">
+                    <a href="ShowBook" method="get">
                     <div class="thumbnail hvr-grow">
                         <img src="@item.Image">
                         <div class="caption">

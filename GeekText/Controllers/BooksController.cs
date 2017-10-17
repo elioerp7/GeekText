@@ -27,6 +27,18 @@ namespace GeekText.Controllers
                                                              search == null).ToList());
             }
         }
+        [HttpGet]
+        public IActionResult ShowBook(string model)
+        {
+            ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
+            //return View(context.GetAllBooks());
+            if (model == null)
+                return View(context.GetAllBooks());
+            else
+            {
+                return View(context.GetAllBooks().Where(x => x.Title.ToLower().Contains(model.ToLower()) || model == null).ToList());
+            }
+        }
         
     }
 }
