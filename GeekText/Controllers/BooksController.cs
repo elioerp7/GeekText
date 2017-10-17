@@ -31,7 +31,6 @@ namespace GeekText.Controllers
         {
             ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
             //field.Replace("%20", " ");
-            ViewBag.msg = field;
             //return View(context.GetAllBooks());
             if (field == null)
                 return View(context.GetAllBooks());
