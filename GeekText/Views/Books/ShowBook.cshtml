@@ -1,7 +1,25 @@
+@model IEnumerable<GeekText.Models.Book>
 
-@{
-    ViewData["Title"] = "ShowBook";
-}
+    @{
+        ViewData["Title"] = "ShowBook";
+    }
 
-<h2>ShowBook</h2>
-
+    <h2>ShowBook</h2>
+    <div class="row" height="220">
+        @if (Model.Count() != 0)
+        {
+            foreach (var item in Model)
+            {
+                <div class="col-lg-2 col-md-4 col-sm-4 col-xs-5">
+                        <div class="thumbnail hvr-grow">
+                            <img src="@item.Image">
+                            <div class="caption">
+                                <h5>@item.Title</h5>
+                                <h6>@item.Author<br />$@item.Price</h6>
+                                <p><a href="#" class="btn btn-primary" role="button">Add To Cart</a></p>
+                            </div>
+                        </div>
+                </div>
+            }
+        }
+    </div>

@@ -20,7 +20,7 @@
             foreach (var item in Model)
             {
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-5">
-                    <a href="ShowBook" method="get">
+                    <a href="ShowBook?field=@item.Title">
                     <div class="thumbnail hvr-grow">
                         <img src="@item.Image">
                         <div class="caption">

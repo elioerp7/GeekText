@@ -27,16 +27,17 @@ namespace GeekText.Controllers
                                                              search == null).ToList());
             }
         }
-        [HttpGet]
-        public IActionResult ShowBook(string model)
+        public IActionResult ShowBook(string field)
         {
             ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
+            //field.Replace("%20", " ");
+            ViewBag.msg = field;
             //return View(context.GetAllBooks());
-            if (model == null)
+            if (field == null)
                 return View(context.GetAllBooks());
             else
             {
-                return View(context.GetAllBooks().Where(x => x.Title.ToLower().Contains(model.ToLower()) || model == null).ToList());
+                return View(context.GetAllBooks().Where(x => x.Title.ToLower().Equals(field.ToLower()) || field == null).ToList());
             }
         }
         
