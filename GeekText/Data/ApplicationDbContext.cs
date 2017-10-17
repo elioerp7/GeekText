@@ -1,6 +1,5 @@
 ﻿using GeekText.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -54,13 +53,13 @@ namespace GeekText.Data
             return list;
         }
         //not used yet
-        public void PopulateDatabase()
+        public void PopulateDatabase(object sender, EventArgs e)
         {
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = "UPDATE Books SET ISBN = 978-0062315007, Title = 'The Alchemist', Description='Description7', Price=34.99, Author='Paulo Coelho', Genre='Adventure', Publisher='HarperOne', Quantity = 60, image = '\\Data\\BookCovers\\516c6gUQLaL._SX329_BO1,204,203,200_.jpg', isFeatured=1";
+                //MySqlCommand cmd = new MySqlCommand();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO Books (`ISBN`, `Title`, `Description`, `Price`, `Author`,`Genre`, `Publisher`, `Quantity`, `image`, `isFeatured`) VALUES(N'111-0062315007', N'The Alchemist', N'Description7', 34.99, N'Paulo Coelho', N'Adventure', N'HarperOne', 60, N'http://t2.gstatic.com/images?q=tbn:ANd9GcTAyMeaePHdaWi1UppB8qvu2GtO4jfpufEsS3cR8Sp9Is-x3KXb', 1);", conn);
                 cmd.ExecuteNonQuery();
             }
         }

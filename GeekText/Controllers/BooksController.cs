@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using GeekText.Data;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace GeekText.Controllers
 {
@@ -33,12 +30,24 @@ namespace GeekText.Controllers
             //field.Replace("%20", " ");
             //return View(context.GetAllBooks());
             if (field == null)
-                return View(context.GetAllBooks());
+                return View();
             else
             {
                 return View(context.GetAllBooks().Where(x => x.Title.ToLower().Equals(field.ToLower()) || field == null).ToList());
             }
         }
-        
+        public IActionResult ShowAuthor(string field)
+        {
+            ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
+            //field.Replace("%20", " ");
+            //return View(context.GetAllBooks());
+            if (field == null)
+                return View();
+            else
+            {
+                return View(context.GetAllBooks().Where(x => x.Author.ToLower().Equals(field.ToLower()) || field == null).ToList());
+            }
+        }
+
     }
 }
