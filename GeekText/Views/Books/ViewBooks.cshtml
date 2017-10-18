@@ -21,7 +21,7 @@
             foreach (var item in Model)
             {
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-5">
-                    <a href="ShowBook?field=@item.Title"></a>
+                    <a href="ShowBook?field=@item.Title">
                     <div class="thumbnail hvr-grow">
                         <img src="@item.Image">
                         <div class="caption">
@@ -32,6 +32,7 @@
                             <p><a href="#" class="btn btn-primary" role="button">Add To Cart</a></p>
                         </div>
                     </div>
+                    </a>
                 </div>
             }
         }
