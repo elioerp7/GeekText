@@ -27,20 +27,18 @@ namespace GeekText.Controllers
         public IActionResult ShowBook(string field)
         {
             ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
-            //field.Replace("%20", " ");
-            //return View(context.GetAllBooks());
+
             if (field == null)
                 return View();
             else
             {
-                return View(context.GetAllBooks().Where(x => x.Title.ToLower().Equals(field.ToLower()) || field == null).ToList());
+                return View(context.GetAllBooks().Where(x => x.ISBN.Equals(field) || field == null).ToList());
             }
         }
         public IActionResult ShowAuthor(string field)
         {
             ApplicationDbContext context = HttpContext.RequestServices.GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
-            //field.Replace("%20", " ");
-            //return View(context.GetAllBooks());
+
             if (field == null)
                 return View();
             else
